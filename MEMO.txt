@@ -1,0 +1,25 @@
+# OBJECTIF:  tester mongoDB et Architecture MVC 
+# Créer une TODO liste, avec stockage, ajout, suppression et modification des éléments de la liste (CRUD)
+
+# L'application tiens sur 2 pages uniquement (la page racine ('/') qui fait office de formulaire et de visu des éléments de la todo-liste
+et la page ('/editer') qui dirige vers une page qui permet de modifier un élément de la todo-liste)
+
+# Lancer l'application en local = npm run dev (voir script dans package.json)
+
+
+# Librairies intallées:
+    nodemon (réactualise le server à chaque modification) = npm i nodemon -D  (le "-D" pour l'installer uniquement comme dépendence de dev)
+    express (lib qui permet notament un rooting + simple) = npm i express
+    pug (moteur de template, dossier "views" à la racine obligatoire) = npm install pug
+    html2pug (Permet de transformer du html en pug, voir script dans package.json) = npm i html2pug
+        => pour html2pug le fichier "html2pug.html" permet de stocker le html à transformer en .pug et le fichier html2pug.pug est le fichier qui reçoit le HTML tranformé
+    body-parser (Permet de parser le contenu d'une requête) = npm i body-parser
+    mongoose (ODM qui facilite la communication entre notre appli et la bdd mongoDB) = npm i mongoose
+    dotenv (Permet l'ajout d'un fichier '.env' pour y stocker les variables d'environnement) = npm i dotenv
+    method-override (Permet l'ajout des méthode autre que 'POST' et 'GET' dans les formulaire html (pug, ici)) = npm i method-override
+
+
+# POUR METTRE EN LIGNE L'application
+    1. Vérif que dans package.json il y ai bien le script 'start' qui lance node sur app.js
+    2. Créer un fichier .gitignore à la racine de l'application et mettre les noms de fichiers "node_modules" et ".env" pour les ignorer
+    3. Configurer le "PORT" du serveur dans 'app.js' pour qu'il soit configurer pour être en ligne

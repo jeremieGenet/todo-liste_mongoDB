@@ -1,0 +1,12 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4
+  a.navbar-brand(href='/') Todo App
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarNavAltMarkup
+    .navbar-nav
+      a.nav-item.nav-link.active(href='#')
+        | Home 
+        span.sr-only (current)
+      a.nav-item.nav-link(href='#') Features
+      a.nav-item.nav-link(href='#') Pricing
+      a.nav-item.nav-link.disabled(href='#' tabindex='-1' aria-disabled='true') Disabled

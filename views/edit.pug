@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+    // CARD DE CREATION D'UN ELEMENT DE LA TODO-LISTE
+    .row
+        .col-md-4
+            .card
+                .card-header
+                    h3 Editer la tâche
+                .card-body
+                    // Avec la lib 'method-override' on 'Post' notre formulaire puis on change la méthode en 'PUT'
+                    form(method="POST", action="/editer/" + todo_id + "?_method=PUT" )
+                        .form-group
+                            label(for='todo') Editer une Tâche:
+                            // l'attribut 'name' de l'input est ici indispensable pour en récup le contenu 
+                            input.form-control#todo(type='text', name="title", value=todo.title) 
+                        button(type="submit").btn.btn-primary.btn-block
+                            | Editer
+                            i.fas.fa-pencil-alt.pl-2

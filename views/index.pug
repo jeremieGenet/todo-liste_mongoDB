@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    // CARD DE CREATION D'UN ELEMENT DE LA TODO-LISTE
+    .row
+        .col-md-4
+            .card
+                .card-header
+                    h3 Ajouter une tâche
+                .card-body
+                    form(action="/ajouter", method="POST")
+                        .form-group
+                            label(for='todo') Ajouter une Tâche:
+                            // l'attribut 'name' de l'input est ici indispensable pour en récup le contenu
+                            input.form-control#todo(type='text', name="title") 
+                        button(type="submit").btn.btn-primary.btn-block
+                            | Ajouter
+                            i.fas.fa-plus.pl-2
+        // TABLEAU DES ELEMENTS DE LA TODO-LISTE (avec édition et suppression)
+        .col-md-8
+
+            table.table.table-striped
+                thead
+                    tr
+                        th(scope='col') Id
+                        th(scope='col') Todo (nom de la tâche)
+                        th(scope='col') Editer
+                        th(scope='col') Supprimer
+                tbody
+                    // Boucle sur l'ensemble des todo de la liste (pour afficher le titre de nos todo)
+                    each todo in todos
+                        tr
+                            td= todo.id
+                            td= todo.title
+                            td
+                                // Boutton Editer (lien avec dans le href l'id de l'élément à éditer)
+                                a(href="/editer/" + todo.id).btn.btn-info
+                                    i.fas.fa-pencil-alt
+                            td
+                                // Avec la lib 'method-override' on 'Post' notre formulaire puis on change la méthode en 'DELETE'
+                                form(method="POST", action="/supprimer/" + todo.id + "?_method=DELETE")
+                                    // Boutton Supprimer
+                                    button(type="submit").btn.btn-danger
+                                        i.fas.fa-trash-alt
